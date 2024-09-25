@@ -22,25 +22,25 @@
         });
 
         function calculateTotalPrice(){
-            const count = $("#count").val();
-            const price = $("#price").val();
-            const totalPrice = price * count;
+            var count = $("#count").val();
+            var price = $("#price").val();
+            var totalPrice = price * count;
             $("#totalPrice").text(totalPrice + '원');
         }
 
         function order(){
 
 
-            const token = $("meta[name='_csrf']").attr("content");
-            const header = $("meta[name='_csrf_header']").attr("content");
+            var token = $("meta[name='_csrf']").attr("content");
+            var header = $("meta[name='_csrf_header']").attr("content");
 
-            const url = "/order";
-            const paramData = {
+            var url = "/order";
+            var paramData = {
                 itemId: $("#itemId").val(),
-                content: $("#count").val()
+                count: $("#count").val()
             };
 
-            const param = JSON.stringify(paramData);
+            var param = JSON.stringify(paramData);
 
 
             $.ajax({
